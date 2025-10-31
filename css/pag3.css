@@ -1,0 +1,56 @@
+body.bg-dark {
+  background-color: #333 !important;
+  color: white;
+}
+
+.logo h3 {
+  font-weight: 900;
+  font-style: italic;
+}
+
+.avatar-icon-small {
+  width: 40px;
+  height: 40px;
+  background-color: black;
+}
+
+.nav-pills .nav-link {
+  background-color: #444;
+  color: white;
+  border-radius: 30px;
+  font-weight: 600;
+  padding: 5px 15px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .nav-link:hover {
+  background-color: #008080;
+  color: white;
+}
+
+.status-btn {
+  font-weight: 700;
+  border-radius: 12px;
+  width: 150px;
+  text-align: left;
+  padding-left: 20px;
+  box-shadow: 2px 2px 5px rgb(0 0 0 / 0.3);
+}
+
+.btn-success.status-btn {
+  background-color: #4caf50;
+  border-color: #4caf50;
+}
+
+.btn-warning.status-btn {
+  background-color: #c49a18;
+  border-color: #c49a18;
+  color: black;
+}
+
+.btn-secondary.status-btn {
+  background-color: #777;
+  border-color: #777;
+  color: white;
+}
