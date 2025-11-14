@@ -17,7 +17,7 @@
           </svg>
         </div>
       </div>
-      <form action="php/cad_usuario.php" method="POST"></form>
+      <form action="php/cad_usuario.php" method="POST">
         <div class="mb-2">
           <label for="nome" class="form-label fw-bold">Nome:</label>
           <input type="text" id="nome" name="nome" class="form-control input-custom" placeholder="Digite seu nome" required />
@@ -43,7 +43,7 @@
           <input type="text" id="setor" name="setor" class="form-control input-custom" placeholder="Digite seu setor" />
         </div>
         <div class="d-flex justify-content-between">
-          <button type="submit" class="btn btn-info btn-custom">Cadastrar</button>
+          <button type="submit" class="btn btn-info btn-criar" onclick="window.location.href='index.html'" >Cadastrar</button>
           <a href="index.html" class="btn btn-danger btn-custom">Voltar</a>
         </div>
       </form>
