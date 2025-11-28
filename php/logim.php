@@ -22,5 +22,18 @@ $resutado = $query->fetch_assoc();
 
 print_r($_POST);
 print_r($resutado);
+
+$email_bd = $resutado ['email'];
+$senha_bd = $resutado ['senha'];
+
+if($email == $email_bd && $senha = $senha_bd) {
+    session_start();
+    $SESSION['id_usuario'] = $resutado ['id'];
+    header('location: ../pag3.html');
+}
+    else
+    {
+     echo "<script> alert('usuario ou Senha invalida!!); history.back() </script>";
+    }
 ?>
 
