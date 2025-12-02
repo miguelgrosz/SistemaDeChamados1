@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="css/pag4.css" />
 </head>
 <body class="bg-dark text-light">
-  <div class="container py-4">
+  <div class="container py-4"> 
     <header class="d-flex align-items-center mb-3">
       <div class="logo d-flex align-items-center gap-2 text-white me-auto">
         <h3 class="m-0">Glpi</h3>
@@ -18,43 +18,103 @@
           </svg>
         </div>
       </div>
+
+      <?php 
+      session_start();
+      if (isset($_SESSION['id_usuario'])) {
+        $nome_usuarios = $_SESSION['nm_usuario'];
+        echo "Olá ". $nome_usuarios;
+
+
+      }else {
+
+
+        echo "<script> alert('Você não está logado!') history.back(); </script>";
+
+
+      }   
+      ?>
+
       <nav>
         <ul class="nav nav-pills gap-2">
-          <li class="nav-item"><a href="pag3.html" class="nav-link">Home</a></li>
-          <li class="nav-item"><a href="pag4.html" class="nav-link active">Novo chamado</a></li>
-          <li class="nav-item"><a href="pag3.html" class="nav-link">Chamado</a></li>
+          <!-- <li class="nav-item"><a href="pag3.html" class="nav-link">Home</a></li> -->
+          <li class="nav-item"><a href="pag4.html" class="nav-link active">Recaregar pag</a></li>
+          <!-- <li class="nav-item"><a href="pag3.html" class="nav-link">Chamado</a></li> -->
           <li class="nav-item"><a href="pag3.html" class="nav-link">Voltar</a></li>
         </ul>
       </nav>
     </header>
 
     <form>
+
       <div class="row mb-3">
         <div class="col-md-3">
           <label for="tipo" class="form-label fw-bold">tipo</label>
           <select id="tipo" name="tipo" class="form-select">
-            <option value="" disabled selected>Selecione</option>
+            <?php 
+            include 'php/conexao.php';
+            $select = "SELECT * FROM tb_tipo";
+            $query = $conexao-> query($select);
+            while ($resultado = $query->fetch_assoc()){?>
+
+            <option value="id_tipo"><?php echo $resultado['nm_tipo'] ?></option>
+
+            <?php }?>
+
+
+            
+            <!-- <option value="" disabled selected>Selecione</option>
             <option value="hardware">Hardware</option>
             <option value="software">Software</option>
-            <option value="rede">Rede</option>
+            <option value="rede">Rede</option> -->
+
+
           </select>
         </div>
         <div class="col-md-3">
           <label for="categoria" class="form-label fw-bold">categoria</label>
           <select id="categoria" name="categoria" class="form-select">
-            <option value="" disabled selected>Selecione</option>
+          <?php 
+            include 'php/conexao.php';
+            $select = "SELECT * FROM tb_categoria";
+            $query = $conexao-> query($select);
+            while ($resultado = $query->fetch_assoc()){?>
+
+            <option value="id_tipo"><?php echo $resultado['nm_categoria'] ?></option>
+
+            <?php }?>
+
+
+
+            <!-- <option value="" disabled selected>Selecione</option>
             <option value="suporte">Suporte</option>
             <option value="incidente">Incidente</option>
-            <option value="requisicao">Requisição</option>
+            <option value="requisicao">Requisição</option> -->
+
+
           </select>
+
         </div>
         <div class="col-md-3">
           <label for="urgencia" class="form-label fw-bold">Urgencia</label>
           <select id="urgencia" name="urgencia" class="form-select">
-            <option value="" disabled selected>Selecione</option>
+          <?php 
+            include 'php/conexao.php';
+            $select = "SELECT * FROM tb_urgencia";
+            $query = $conexao-> query($select);
+            while ($resultado = $query->fetch_assoc()){?>
+
+            <option value="id_urgencia"><?php echo $resultado['nm_urgencia'] ?></option>
+
+            <?php }?>
+
+
+
+            <!-- <option value="" disabled selected>Selecione</option>
             <option value="baixa">Baixa</option>
             <option value="media">Média</option>
-            <option value="alta">Alta</option>
+            <option value="alta">Alta</option> -->
+
           </select>
         </div>
         <div class="col-md-3">
@@ -73,6 +133,7 @@
       </div>
     </form>
   </div>
+  
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>

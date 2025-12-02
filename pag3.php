@@ -9,6 +9,21 @@
 </head>
 <body class="bg-dark">
   <div class="container py-4">
+  <?php 
+        session_start();
+        if (isset($_SESSION['id_usuario'])) {
+          $nome_usuarios = $_SESSION['nm_usuario'];
+          echo "Olá ". $nome_usuarios;
+
+
+        }else {
+
+
+          echo "<script> alert('Você não está logado!') history.back(); </script>";
+
+
+        }   
+?>
     <header class="d-flex align-items-center mb-3">
       <div class="logo d-flex align-items-center gap-2 text-white me-auto">
         <h3 class="m-0">Glpi</h3>
@@ -21,7 +36,7 @@
       <nav>
         <ul class="nav nav-pills gap-2">
           <!-- <li class="nav-item"><a href="" class="nav-link active">Home</a></li> -->
-          <li class="nav-item"><a href="pag4.html" class="nav-link">Novo chamado</a></li>
+          <li class="nav-item"><a href="pag4.php" class="nav-link">Novo chamado</a></li>
           <!-- <li class="nav-item"><a href="a" class="nav-link">Chamados</a></li> -->
           <li class="nav-item"><a href="index.html" class="nav-link text-danger">Sair</a></li>
         </ul>
